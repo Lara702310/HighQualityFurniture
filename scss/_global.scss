@@ -1,21 +1,34 @@
 @use "./variables" as var;
 @use "./fonts";
 
+html {
+    font-size: 62.5%;
+}
 body {
+    
     font-family: "Gilroy", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: var.$color-text-primary;
+    background-color: var.$color-bg-primary;
 
 }
 
-html {
-    font-size: 62.5%;
-}
+
 
 // Контейнер
 .container {
-    max-width: 1200px;
+    max-width:var.$maxWidthContainer + px;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    &._loaded{
+    
+    }
 }

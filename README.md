@@ -1,4 +1,4 @@
-# My Project
+# My Project: High-Quality Furniture
 
 Учебный проект, созданный в процессе изучения веб-разработки.
 
