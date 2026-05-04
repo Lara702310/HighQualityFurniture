@@ -175,4 +175,26 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+}
+.header__main {
+  height: 11rem;
+}
+
+.header__main,
+.menu__list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.menu__link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu__icon {
+  width: 20px;
+  height: 20px;
+  fill: #111111;
 }/*# sourceMappingURL=style.css.map */

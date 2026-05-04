@@ -1,3 +1,23 @@
 @use "../variables" as var;
 @use "../mixins" as m;
 
+
+.header__main {
+    height: 11rem;
+}
+.header__main,
+.menu__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.menu__link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.menu__icon {
+    width: 20px;
+    height: 20px;
+    fill: var.$color-bg-dark;
+}
