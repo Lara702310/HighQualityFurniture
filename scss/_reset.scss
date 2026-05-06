@@ -38,14 +38,15 @@ svg {
 
 //  Формы, кнопки... ======
 input,
-textarea,
 button,
-select {
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
+textarea {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
 }
-
 input::-ms-clear {
   display: none;
 }

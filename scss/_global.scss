@@ -10,7 +10,7 @@ body {
     font-weight: 400;
     font-size: 16px;
     color: var.$color-text-primary;
-    background-color: var.$color-bg-primary;
+    background: var.$color-orange-secondary;
 
 }
 
@@ -28,7 +28,5 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    &._loaded{
     
-    }
 }

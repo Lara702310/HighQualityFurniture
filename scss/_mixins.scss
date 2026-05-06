@@ -27,3 +27,43 @@
     flex-direction: column;
     align-items: center;
 }
+
+
+//!  Адаптивные значения для свойств
+//  $property  // какое свойство менять (gap, padding, font-size...)
+//  $max    максимальное значение (32px) — на широком экране
+//   $min  минимальное значение (15px) — на узком экране
+//   $type      // режим работы  1 — адаптивное — плавно между min и max
+
+
+@mixin adaptiv-value($property, $max, $min, $type) {
+    $max-width: 1440; // максимальная ширина экрана
+    $min-width: 320;  // минимальная ширина экрана
+
+    // всегда максимальное значение
+    @if $type == 0 {
+        #{$property}: #{$max}px;
+    }
+
+    // всегда минимальное значение
+    @else if $type == 2 {
+        #{$property}: #{$min}px;
+    }
+
+    // адаптивное — между min и max
+    @else if $type == 1 {
+        #{$property}: #{$max}px;
+
+        @media (max-width: #{$max-width}px) {
+            // fluid формула: calc(min + (max - min) * (100vw - min-width) / (max-width - min-width))
+            #{$property}: calc(
+                #{$min}px + (#{$max} - #{$min}) *
+                ((100vw - #{$min-width}px) / (#{$max-width} - #{$min-width}))
+            );
+        }
+
+        @media (max-width: #{$min-width}px) {
+            #{$property}: #{$min}px;
+        }
+    }
+}
