@@ -1,0 +1,10 @@
+@use "../variables" as var;
+@use "../mixins" as mx;
+
+
+
+.icon {
+   width: var.$icon-md;
+   height: var.$icon-md;
+    fill: currentColor;
+}

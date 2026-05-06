@@ -1,6 +1,12 @@
 @use "./reset";
 @use "./variables" as var;
-@use "./mixins" as m;
+@use "./mixins" as mx;
 @use "./fonts";
 @use "./global";
-@use "./layout/header"
+@use "./components/buttons";
+@use "./components/cards";
+@use "./components/forms";
+@use "./components/icons";
+@use "./layout/header";
+
+
