@@ -7,6 +7,7 @@
     top: 0;
     left: 0;
 
+    // header-wrapper ===> header__wrapper
     &__wrapper {
         position: fixed;
         top: 0;
@@ -15,14 +16,24 @@
         z-index: 100;
     }
 
+    // header-body ====> header__body
     &__body {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         padding: 5px 0;
         min-height: 12.5rem;
+        position: relative;
+
+        @media (max-width: #{var.$md2}px) {
+            min-height: 80px;
+        }
+
+        @media (max-width: #{var.$md3}px) {
+            min-height: 50px;
+        }
     }
 
+    // header-main ===> header__main
     &__main {
         display: flex;
         align-items: center;
@@ -33,24 +44,23 @@
         }
     }
 
+    // header-logo ===> header__logo
     &__logo {
         color: var.$color-bg-dark;
         font-size: 2.4rem;
         font-weight: 700;
         line-height: 29 / 24 * 100%;
+        position: relative;
+        z-index: 5;
     }
 
+    // header-search ===> header__search
     &__search {
-        display: flex;
-        align-items: center;
-        flex: 0 0 473/1240 * 100%;
         @include mx.adaptiv-value("padding-right", 32, 15, 1);
-
-        @media (max-width: #{var.$md2}px) {
+        @media (min-width: #{var.$md2}px) {
             flex: 1 1 auto;
         }
     }
-
 }
 
 
@@ -61,7 +71,7 @@
     border: none;
     background: transparent;
     cursor: pointer;
-    padding: 0;
+    margin: 0 0 0 5px;
 
     .icon {
         transition: transform 0.3s ease;
@@ -78,6 +88,19 @@
 
 .menu {
     flex: 0 1 420px;
+
+    &__body {
+        @media (max-width: #{var.$md3}px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var.$color-bg-secondary;
+            transition: left 0.3s ease 0s;
+            padding: 70px 15px 30px 15px;
+        }
+    }
 
     &__list {
         @media (min-width: #{var.$md3}px) {
@@ -135,10 +158,16 @@
         }
     }
 
+    // header__link ===> menu__link ============
     &__link {
         font-weight: 500;
         color: inherit;
         transition: color 0.3s ease;
+
+        @media (max-width: #{var.$md3}px) {
+            font-size: 2.4rem;
+            font-weight: 600;
+        }
     }
 
     &__sub-list {
@@ -155,7 +184,33 @@
             position: absolute;
             top: 100%;
             left: 0;
+            z-index: 5;
         }
+
+        @media (max-width: #{var.$md3}px) {
+            overflow: hidden;
+            max-height: 0;
+            padding: 0 1.5rem; // горизонтальный padding оставляем, вертикальный уберём
+            transition: max-height 0.35s ease;
+
+            &._scroll {
+                overflow-y: auto;
+                max-height: 100px; // высота до которой растягивается список
+            }
+        }
+
+        @media (min-width: #{var.$md3}px) {
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(0, -10px);
+            transition: all 0.3s ease;
+            min-width: 20rem;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 5;
+        }
+
     }
 
     &__sub-item {
@@ -171,14 +226,11 @@
     }
 }
 
+
 // header__search ==  search-form 
 
 .search-form {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 4.5rem;
-    background-color: var.$color-bg-primary;
+    max-width: 47.3rem;
 
     &._active {
         .search-form__item {
@@ -192,30 +244,30 @@
         }
     }
 
-    &__btn {
-        flex: 0 0 45px;
-        height: 45px;
-        font-size: 16px;
-        color: var.$color-bg-search;
-    }
-
     &__icon {
         position: relative;
         z-index: 5;
-        font-size: 2.2rem;
-        color: #262f56;
-        align-items: center;
+        font-size: 30px;
+        color: var.$color-orange-accents;
+        transition: color 0.3s ease;
 
         @media (min-width: #{var.$md2}px) {
             display: none;
         }
     }
 
+    .icon--search {
+        width: 24px;
+        height: 24px;
+    }
+
     &__item {
 
-        width: 100%;
+        height: 45px;
+        background-color: var.$color-bg-primary;
         display: flex;
         align-items: center;
+        justify-content: center;
 
         @media (max-width: #{var.$md2}px) {
             box-shadow: 0 0 5px rgba(212, 209, 205, 0.3);
@@ -230,7 +282,16 @@
         }
     }
 
+    &__btn {
+        flex: 0 0 45px;
+
+        font-size: 16px;
+        margin-left: 1rem;
+        color: var.$color-bg-search;
+    }
+
     &__input {
+
         width: 100%;
         padding: 0 2rem 0 0;
         font-size: 1.4rem;
@@ -252,9 +313,11 @@
 
     &__item {
         .icon_favorites {
-            font-size: 24px;
-            color: #262f56;
+            width: 24px;
+            height: 24px;
+            color: var.$color-bg-icon;
             transition: color 0.3s ease 0s;
+
             @media (any-hover: hover) {
                 &:hover {
                     color: var.$color-orange-accents;
@@ -280,15 +343,15 @@
                 background-color: var.$color-orange-accents;
                 color: var.$color-text-inverse;
                 font-size: 1rem;
-                font-weight: 700;
                 border-radius: 50%;
-                line-height: 1;
             }
 
             // стили самой SVG-иконки корзины
             .icon_cart {
-                font-size: 24px;
-                color: #262f56;
+                position: relative;
+                width: 24px;
+                height: 24px;
+                color: var.$color-bg-icon;
                 transition: color 0.3s ease 0s;
                 display: block;
 
@@ -308,5 +371,4 @@
             @include mx.adaptiv-value("height", 40, 30, 1);
         }
     }
-
 }

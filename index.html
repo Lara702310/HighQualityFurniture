@@ -17,7 +17,7 @@
                         <a href="#" class="header__logo">Funiro.</a>
                         <div class="header__menu menu">
                             <nav class="menu__body">
-                                <ul class="menu__list">
+                                <ul data-spollers="(max-width: 768px)" class="menu__list">
                                     <li class="menu__item">
                                         <a href="#" class="menu__link">Products</a>
                                         <button data-spoller type="button" class="btn btn--menu-arrow-down"> <svg
@@ -37,7 +37,7 @@
                                     </li>
                                     <li class="menu__item">
                                         <a href="#" class="menu__link">Rooms </a>
-                                        <button type="button" class="btn btn--menu-arrow-down">
+                                        <button data-spoller type="button" class="btn btn--menu-arrow-down">
                                             <svg class="icon ">
                                                 <use href="./assets/icons-sprite.svg#arrow-down" />
                                             </svg>
@@ -49,6 +49,18 @@
                                                     #2</a></li>
                                             <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
                                                     #3</a></li>
+                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                    #4</a></li>
+                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                    #4</a></li>
+                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                    #4</a></li>
+                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                    #4</a></li>
+                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                    #4</a></li>
+                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                    #4</a></li>
                                             <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
                                                     #4</a></li>
                                         </ul>
@@ -64,7 +76,7 @@
                     <div class="header__search">
                         <div class="search-form">
                             <button type="button" class="search-form__icon ">
-                                <svg class="icon">
+                                <svg class="icon  icon--search">
                                     <use href="./assets/icons-sprite.svg#search" />
                                 </svg>
                             </button>
@@ -109,6 +121,7 @@
             </div>
         </div>
     </header>
+
 
 
     <script src="./main.js"></script>
