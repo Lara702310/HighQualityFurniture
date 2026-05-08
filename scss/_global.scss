@@ -1,4 +1,5 @@
 @use "./variables" as var;
+@use "./mixins" as mx;
 @use "./fonts";
 
 html {
@@ -29,4 +30,15 @@ body {
     display: flex;
     flex-direction: column;
     
+}
+.mainmain {
+    height: 20rem
+}
+
+// Footer  // ==========
+._footer-title{
+    @include mx.adaptiv-value("font-size", 24, 20, 1);
+    line-height:29/24*100%;
+    color: var.$color-bg-dark;
+    font-weight: var.$font-weight-bold;
 }

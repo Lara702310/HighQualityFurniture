@@ -8,3 +8,78 @@
     height: var.$icon-md;
     fill: currentColor;
 }
+
+// search-form  //   ==================================
+
+.search-form__icon {
+    position: relative;
+    z-index: 5;
+    font-size: 30px;
+    color: var.$color-orange-accents;
+    transition: color 0.3s ease;
+
+    @media (min-width: #{var.$md2}px) {
+        display: none;
+    }
+}
+
+
+// icon--search ===
+.icon--search {
+    width: 24px;
+    height: 24px;
+}
+
+// header-actions  // ====================================
+
+// =====  icon_favorites ====
+.icon_favorites {
+    width: 24px;
+    height: 24px;
+    color: var.$color-bg-icon;
+    transition: color 0.3s ease 0s;
+
+    @media (any-hover: hover) {
+        &:hover {
+            color: var.$color-orange-accents;
+        }
+    }
+}
+
+// стили самой SVG-иконки корзины
+.icon_cart {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    color: var.$color-bg-icon;
+    transition: color 0.3s ease 0s;
+    display: block;
+
+    @media (any-hover: hover) {
+        &:hover {
+            color: var.$color-orange-accents;
+        }
+    }
+}
+
+.cart-header__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & span {
+        position: absolute;
+        width: 1.6rem;
+        height: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: -10px;
+        right: -10px;
+        background-color: var.$color-orange-accents;
+        color: var.$color-text-inverse;
+        font-size: 1rem;
+        border-radius: 50%;
+    }
+}

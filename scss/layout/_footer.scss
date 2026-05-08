@@ -1,0 +1,204 @@
+@use "../variables" as var;
+@use "../mixins" as mx;
+@use "sass:math";
+
+.footer {
+    &__body {
+        border-top: 1px solid var.$border-color-footer;
+        display: grid;
+        grid-template-columns: 25rem 1fr 29rem;
+        @include mx.adaptiv-value("padding-top", 80, 30, 1);
+        @include mx.adaptiv-value("padding-bottom", 60, 30, 1);
+        @include mx.adaptiv-value("column-gap", 80, 0, 1);
+
+        @media (max-width: #{var.$md1}px) {
+            grid-template-rows: auto auto;
+            grid-template-columns: 1fr 290px;
+        }
+
+        @media (max-width: #{var.$md2}px) {
+            display: block;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        @media (max-width: #{var.$md1}px) {
+            grid-column: span 2;
+            @include mx.adaptiv-value("margin-bottom", 40, 30, 1);
+        }
+    }
+
+    &__logo {
+        margin: 0 0 math.div(16px, 24px) * 1em 0;
+    }
+
+    &__text {
+        color: var.$color-gray-1;
+        line-height: 150%;
+
+        &:not(:last-child) {
+            margin: 0 0 1em 0;
+        }
+    }
+
+    &__menu {
+        @media (max-width: #{var.$md2}px) {
+            @include mx.adaptiv-value("margin-bottom", 40, 30, 1);
+        }
+    }
+}
+
+
+// Footer-contacts //============================
+.contacts-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        line-height: 150%;
+        color: var.$color-gray-1;
+        gap: 0.5rem;
+        transition: color 0.3s ease 0s;
+
+        &:not(:last-child) {
+            @include mx.adaptiv-value("margin-bottom", 16, 10, 1);
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var.$color-orange-accents;
+            }
+        }
+    }
+}
+
+
+// menu-footer //============================
+.menu-footer {
+    @media (min-width: #{var.$md3}px) {
+        display: flex;
+    }
+
+    &__column {
+        @media (min-width: #{var.$md3}px) {
+            flex: 0 1 33.333%;
+        }
+
+        @media (max-width: #{var.$md3}px) {
+            @include mx.adaptiv-value("margin-bottom", 30, 15, 1);
+        }
+    }
+
+    &__title {
+        cursor: default;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (min-width: #{var.$md3}px) {
+            margin: 0 0 math.div(16px, 24px) * 1em 0;
+        }
+
+        @media (max-width: #{var.$md3}px) {
+            cursor: pointer;
+            width: 100%;
+        }
+
+        &._spoller-active {
+            .btn--menu-arrow-down {
+                transform: rotate(-135deg);
+            }
+        }
+
+    }
+
+    &__list {
+        @media (max-width: #{var.$md3}px) {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.35s ease;
+        }
+
+        li {
+            &:not(:last-child) {
+                margin: 0 0 15px 0;
+            }
+        }
+    }
+     //  рисуем  стрелки  и виводим  с помощю js ==================
+    .btn--menu-arrow-down {
+        display: none;
+        flex-shrink: 0;
+
+        @media (max-width: #{var.$md3}px) {
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(45deg);
+            transition: transform 0.3s ease;
+            margin-bottom: 4px;
+        }
+    }
+
+    &__link {
+        color: var.$color-dark-gray;
+        line-height: 120%;
+        font-weight: var.$font-weight-medium;
+        transition: color 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var.$color-orange-accents;
+            }
+        }
+    }
+}
+
+
+// subscribe //============================
+.subscribe {
+    &__title {
+        margin: 0 0 math.div(16px, 24px) * 1em 0;
+    }
+
+    &__form {
+        display: flex;
+        position: relative;
+    }
+
+    &__input {
+        width: 100%;
+        height: 45px;
+        padding: 0 12px;
+        background: #f4f5f7;
+        font-size: 1.6rem;
+        color: var.$color-gray-3;
+    }
+
+    &__button {
+        flex: 0 0 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var.$color-orange-accents;
+        color: var.$color-bg-secondary;
+        margin: 0 0 0 4px;
+        transition: background-color 0.3s ease 0s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: var.$color-orange-2;
+            }
+        }
+    }
+}

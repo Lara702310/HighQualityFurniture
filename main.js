@@ -40,10 +40,18 @@ window.onload = function () {
         if (targetElement.closest('.search-form__icon')) {
             document.querySelector('.search-form').classList.toggle('_active');
         }
+        // header menu-burger // =======
+        // клик на menu-burger
+        if (targetElement.closest('.icon-menu--burger')) {
+            targetElement.closest('.icon-menu--burger').classList.toggle('_active');
+
+            //  выезжает  sub-list    при клике   menu-burger
+            document.querySelector('.menu__body').classList.toggle('_active');
+        }
     }
 }
 
-// !spollers ==============
+// !spollers //
 
 // Находит все группы [data-spollers] на странице и инициализирует их.
 // Если у группы задан media-запрос — подключает/отключает логику при resize.
@@ -151,3 +159,19 @@ function closeAll(group) {
 }
 
 document.addEventListener('DOMContentLoaded', initSpollers);
+
+// Добавляет стрелки в заголовки футера:  menu-footer__title //============================
+function initFooterArrows() {
+    document.querySelectorAll('.menu-footer [data-spoller]').forEach(btn => {
+        if (!btn.querySelector('.btn--menu-arrow-down')) {
+            btn.insertAdjacentHTML('beforeend', `
+                <span class="btn--menu-arrow-down"></span>
+            `);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initFooterArrows();
+    initSpollers();
+});
