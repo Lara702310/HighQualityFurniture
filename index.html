@@ -5,184 +5,237 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>High-Quality Furniture</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <title>Funiro</title>
 </head>
 
 <body>
-    <header class="header">
-        <div class="header__wrapper">
-            <div class="header__container container">
-                <div class="header__body">
-                    <div class="header__main">
-                        <a href="#" class="header__logo">Funiro.</a>
-                        <div class="header__menu menu">
-                            <nav class="menu__body">
-                                <ul data-spollers="(max-width: 768px)" class="menu__list">
-                                    <li class="menu__item">
-                                        <a href="#" class="menu__link">Products</a>
-                                        <button data-spoller type="button" class="btn btn--menu-arrow-down">
-                                            <svg class="icon ">
-                                                <use href="./assets/icons-sprite.svg#arrow-down" />
-                                            </svg>
-                                        </button>
-                                        <ul class="menu__sub-list">
-                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
-                                                    #1</a></li>
-                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
-                                                    #2</a></li>
-                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
-                                                    #3</a></li>
-                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
-                                                    #4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu__item">
-                                        <a href="#" class="menu__link">Rooms </a>
-                                        <button data-spoller type="button" class="btn btn--menu-arrow-down">
-                                            <svg class="icon ">
-                                                <use href="./assets/icons-sprite.svg#arrow-down" />
-                                            </svg>
-                                        </button>
-                                        <ul class="menu__sub-list">
-                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
-                                                    #1</a></li>
-                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
-                                                    #2</a></li>
-                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
-                                                    #3</a></li>
-                                            <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
-                                                    #4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu__item">
-                                        <a href="#" class="menu__link">Inspirations
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__wrapper">
+                <div class="header__container container">
+                    <div class="header__body">
+                        <div class="header__main">
+                            <a href="#" class="header__logo">Funiro.</a>
+                            <div class="header__menu menu">
+                                <nav class="menu__body">
+                                    <ul data-spollers="(max-width: 768px)" class="menu__list">
+                                        <li class="menu__item">
+                                            <a href="#" class="menu__link">Products</a>
+                                            <button data-spoller type="button" class="btn btn--menu-arrow-down">
+                                                <svg class="icon ">
+                                                    <use href="./assets/icons-sprite.svg#arrow-down" />
+                                                </svg>
+                                            </button>
+                                            <ul class="menu__sub-list">
+                                                <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                        #1</a></li>
+                                                <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                        #2</a></li>
+                                                <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                        #3</a></li>
+                                                <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                        #4</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu__item">
+                                            <a href="#" class="menu__link">Rooms </a>
+                                            <button data-spoller type="button" class="btn btn--menu-arrow-down">
+                                                <svg class="icon ">
+                                                    <use href="./assets/icons-sprite.svg#arrow-down" />
+                                                </svg>
+                                            </button>
+                                            <ul class="menu__sub-list">
+                                                <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                        #1</a></li>
+                                                <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                        #2</a></li>
+                                                <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                        #3</a></li>
+                                                <li class="menu__sub-item"><a class="menu__sub-link" href="#"> Product
+                                                        #4</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu__item">
+                                            <a href="#" class="menu__link">Inspirations
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
-                    </div>
-                    <div class="header__search">
-                        <div class="search-form">
-                            <button type="button" class="search-form__icon ">
-                                <svg class="icon  icon--search">
-                                    <use href="./assets/icons-sprite.svg#search" />
-                                </svg>
-                            </button>
-                            <form action="#" class="search-form__item">
-                                <button type="submit" class="search-form__btn">
-                                    <svg class="icon ">
+                        <div class="header__search">
+                            <div class="search-form">
+                                <button type="button" class="search-form__icon ">
+                                    <svg class="icon  icon--search">
                                         <use href="./assets/icons-sprite.svg#search" />
                                     </svg>
                                 </button>
-                                <input autocomplete="off" type="text" name="form[]"
-                                    placeholder="Search for minimalist chair" data-value="Search for minimalist chair"
-                                    class="search-form__input">
-                            </form>
-                        </div>
-                    </div>
-                    <div class="header__actions actions-header">
-                        <a href="#" class="actions-header__item ">
-                            <svg class="icon icon_favorites">
-                                <use href="./assets/icons-sprite.svg#heart" />
-                            </svg>
-                        </a>
-                        <div class="actions-header__item  cart-header">
-                            <a href="#" class="cart-header__icon">
-                                <svg class="icon icon_cart ">
-                                    <use href="./assets/icons-sprite.svg#cart" />
-                                </svg><span>3</span>
-                            </a>
-                            <div class="cart-header__body">
-                                <ul class="cart-header__list  cart-lyst"></ul>
+                                <form action="#" class="search-form__item">
+                                    <button type="submit" class="search-form__btn">
+                                        <svg class="icon ">
+                                            <use href="./assets/icons-sprite.svg#search" />
+                                        </svg>
+                                    </button>
+                                    <input autocomplete="off" type="text" name="form[]"
+                                        placeholder="Search for minimalist chair"
+                                        data-value="Search for minimalist chair" class="search-form__input">
+                                </form>
                             </div>
                         </div>
-                        <a href="#" class="actions-header__item actions-header__item_user _ibg"><img
-                                src="./assets/tips/avatar.jpg" alt="avatar">
-                        </a>
-                    </div>
-                    <button type="button" class="icon-menu--burger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-    <main class="mainmain">
-        <section></section>
-    </main>
-    <footer class="footer">
-        <div class="footer__container container">
-            <div class="footer__body">
-                <div class="footer__main">
-                    <a href="#" class="footer__logo _footer-title">Funiro.</a>
-                    <div class="footer__text">Worldwide furniture store since 2020. We sell over 1000+ branded products
-                        on our website</div>
-                    <div class="footer__contacts contacts-footer">
-                        <a href="#" class="contacts-footer__item">
-                            <svg class="icon">
-                                <use href="./assets/icons-sprite.svg#map" />
-                            </svg><span>Sawojajar Malang, Indonesia</span>
-                        </a>
-                        <a href="tel:+62894563455" class="contacts-footer__item">
-                            <svg class="icon">
-                                <use href="./assets/icons-sprite.svg#telephone" />
-                            </svg>+6289 456 3455
-                        </a>
-                        <a href="https://www.funiro.com" target="_blank"
-                            class="contacts-footer__item">www.funiro.com</a>
-                    </div>
-                </div>
-                <div data-spollers="(max-width: 768px)" class="footer__menu menu-footer">
-                    <div class="menu-footer__column">
-                        <button type="button" data-spoller class="menu-footer__title _footer-title ">Menu</button>
-                        <ul class="menu-footer__list">
-                            <li><a href="#" class="menu-footer__link">Products</a></li>
-                            <li><a href="#" class="menu-footer__link">Rooms</a></li>
-                            <li><a href="#" class="menu-footer__link">Inspirations</a></li>
-                            <li><a href="#" class="menu-footer__link">About Us</a></li>
-                            <li><a href="#" class="menu-footer__link">Terms & Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="menu-footer__column">
-                        <button type="button" data-spoller class="menu-footer__title _footer-title">Account</button>
-                        <ul class="menu-footer__list">
-                            <li><a href="#" class="menu-footer__link">My Account</a></li>
-                            <li><a href="#" class="menu-footer__link">Checkout</a></li>
-                            <li><a href="#" class="menu-footer__link">IMy Cart</a></li>
-                            <li><a href="#" class="menu-footer__link">My catalog</a></li>
-                        </ul>
-                    </div>
-                    <div class="menu-footer__column">
-                        <button type="button" data-spoller class="menu-footer__title _footer-title ">Stay
-                            Connected</button>
-                        <ul class="menu-footer__list">
-                            <li><a href="#" class="menu-footer__link">Facebook</a></li>
-                            <li><a href="#" class="menu-footer__link">Instagram</a></li>
-                            <li><a href="#" class="menu-footer__link">Twitter</a></li>
-                        </ul>
-                    </div>
-
-                </div>
-                <div class="footer__subscribe  subscribe">
-                    <div class="subscribe__title _footer-title">Stay Updated</div>
-                    <form action="#" class="subscribe__form">
-                        <input autocomplete="off" type="text" name="form[]" placeholder="Enter your email"
-                            data-value="Enter your email" class="subscribe__input _req _email">
-                        <button type="submit" class="subscribe__button"><svg class="icon icon--send">
-                                <use href="./assets/icons-sprite.svg#send" />
-                            </svg>
+                        <div class="header__actions actions-header">
+                            <a href="#" class="actions-header__item ">
+                                <svg class="icon icon_favorites">
+                                    <use href="./assets/icons-sprite.svg#heart" />
+                                </svg>
+                            </a>
+                            <div class="actions-header__item  cart-header">
+                                <a href="#" class="cart-header__icon">
+                                    <svg class="icon icon_cart ">
+                                        <use href="./assets/icons-sprite.svg#cart" />
+                                    </svg><span>3</span>
+                                </a>
+                                <div class="cart-header__body">
+                                    <ul class="cart-header__list  cart-lyst"></ul>
+                                </div>
+                            </div>
+                            <a href="#" class="actions-header__item actions-header__item_user "><img
+                                    src="./assets/tips/avatar.jpg" alt="avatar">
+                            </a>
+                        </div>
+                        <button type="button" class="icon-menu--burger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </button>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </header>
+        <main class="page">
+            <section class="page__main-slider main-slider">
+                <div class="main-slider__container container">
+                    <div class="main-slider__body">
+                        <div class="main-slider__content content-main">
+                            <h1 class="content-main__title">High-Quality
+                                Furniture Just
+                                For You</h1>
+                            <p class="content-main__text">Our furniture is made from selected and best quality materials
+                                that are suitable for your dream home</p>
+                            <a href="#" class="content-main__button  btn--base">Shop Now</a>
+                        </div>
+                        <div class="main-slider__slider slider-main">
+                            <div class="slider-main__controls controls-slider-main">
+                                <div class="controls-slider-main__dotts"></div>
+                                <div class="controls-slider-main__arrows slider-arrows">
+                                    <button type="button" class="slider-arrow slider-arrow--prev "><svg class="icon ">
+                                            <use href="./assets/icons-sprite.svg#arrow-down" />
+                                        </svg></button>
+                                    <button type="button" class="slider-arrow slider-arrow--next "><svg class="icon ">
+                                            <use href="./assets/icons-sprite.svg#arrow-down" />
+                                        </svg></button>
+                                </div>
+
+                            </div>
+                            <div class="slider-main__body _swiper swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide slider-main__slide">
+                                        <div class="slider-main__image _ibg">
+                                            <img src="./assets/main-slider/01.jpg" alt="image">
+                                        </div>
+                                        <a href="" class="slider-main__content">
+                                            <div class="slider-main__title">Bohauss</div>
+                                            <div class="slider-main__text">Luxury big sofa 2-seat</div>
+                                            <div class="slider-main__price">Rp 17.000.000 <svg class="icon ">
+                                            <use href="./assets/icons-sprite.svg#arrow" />
+                                        </svg></div>
+                                        </a>
+                                    </div>
+                                    <!-- второй слайд -->
+                                    <div class="swiper-slide slider-main__slide">
+                                        ...
+                                    </div>
+
+                                </div> <!-- конец swiper-wrapper -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer__container container">
+                <div class="footer__body">
+                    <div class="footer__main">
+                        <a href="#" class="footer__logo _footer-title">Funiro.</a>
+                        <div class="footer__text">Worldwide furniture store since 2020. We sell over 1000+ branded
+                            products
+                            on our website</div>
+                        <div class="footer__contacts contacts-footer">
+                            <a href="#" class="contacts-footer__item">
+                                <svg class="icon">
+                                    <use href="./assets/icons-sprite.svg#map" />
+                                </svg><span>Sawojajar Malang, Indonesia</span>
+                            </a>
+                            <a href="tel:+62894563455" class="contacts-footer__item">
+                                <svg class="icon">
+                                    <use href="./assets/icons-sprite.svg#telephone" />
+                                </svg>+6289 456 3455
+                            </a>
+                            <a href="https://www.funiro.com" target="_blank"
+                                class="contacts-footer__item">www.funiro.com</a>
+                        </div>
+                    </div>
+                    <div data-spollers="(max-width: 768px)" class="footer__menu menu-footer">
+                        <div class="menu-footer__column">
+                            <button type="button" data-spoller class="menu-footer__title _footer-title ">Menu</button>
+                            <ul class="menu-footer__list">
+                                <li><a href="#" class="menu-footer__link">Products</a></li>
+                                <li><a href="#" class="menu-footer__link">Rooms</a></li>
+                                <li><a href="#" class="menu-footer__link">Inspirations</a></li>
+                                <li><a href="#" class="menu-footer__link">About Us</a></li>
+                                <li><a href="#" class="menu-footer__link">Terms & Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-footer__column">
+                            <button type="button" data-spoller class="menu-footer__title _footer-title">Account</button>
+                            <ul class="menu-footer__list">
+                                <li><a href="#" class="menu-footer__link">My Account</a></li>
+                                <li><a href="#" class="menu-footer__link">Checkout</a></li>
+                                <li><a href="#" class="menu-footer__link">IMy Cart</a></li>
+                                <li><a href="#" class="menu-footer__link">My catalog</a></li>
+                            </ul>
+                        </div>
+                        <div class="menu-footer__column">
+                            <button type="button" data-spoller class="menu-footer__title _footer-title ">Stay
+                                Connected</button>
+                            <ul class="menu-footer__list">
+                                <li><a href="#" class="menu-footer__link">Facebook</a></li>
+                                <li><a href="#" class="menu-footer__link">Instagram</a></li>
+                                <li><a href="#" class="menu-footer__link">Twitter</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="footer__subscribe  subscribe">
+                        <div class="subscribe__title _footer-title">Stay Updated</div>
+                        <form action="#" class="subscribe__form">
+                            <input autocomplete="off" type="text" name="form[]" placeholder="Enter your email"
+                                data-value="Enter your email" class="subscribe__input _req _email">
+                            <button type="submit" class="subscribe__button"><svg class="icon icon--send">
+                                    <use href="./assets/icons-sprite.svg#send" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 
 
 
+    <script src="./swiper-bundle.min.js"></script>
     <script src="./main.js"></script>
 </body>
 

@@ -30,6 +30,9 @@ $color-green-accents: #2EC1AC;
 $color-orange-accents: #E89F71;
 $color-orange-2: #e77b37;
 $color-orange-secondary: #f9f1e7;
+$color-page-bg: #fcf8f3;
+$bg-color-hover:rgba(232, 159, 113, 1);
+$bg-color-arrow:rgba(232, 159, 113, 0.452);
 
 // ========================
 $color-bg-primary: #ffffff;
@@ -82,6 +85,6 @@ $maxWidth: 1440;
 $maxWidthContainer: 1270;
 
 $md1: $maxWidthContainer + 12;
-$md2: 991.98;
-$md3: 767.98;
+$md2: 991.98;  //  @media (max-width: #{var.$md2}px) или  min-width
+$md3: 767.98;  // @media (max-width: #{var.$md3}px) или  min-width
 $md4: 479.98;

@@ -1,4 +1,3 @@
-
 @use "../variables" as var;
 @use "../mixins" as mx;
 @use "sass:math";
@@ -25,11 +24,12 @@
 
         @media (max-width: #{var.$md2}px) {
             min-height: 80px;
+
         }
 
         @media (max-width: #{var.$md3}px) {
             min-height: 50px;
-            background-color: var.$color-orange-secondary;
+
         }
     }
 

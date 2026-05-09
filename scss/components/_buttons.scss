@@ -1,6 +1,18 @@
 @use "../variables" as var;
 @use "../mixins" as mx;
 
+
+.btn--base {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    min-height: 48px;
+}
+
+
 // header-menu //  ===  menu-body
 .btn--menu-arrow-down {
     @include mx.flex-center;

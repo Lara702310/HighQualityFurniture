@@ -4,41 +4,61 @@
 
 html {
     font-size: 62.5%;
+    height: 100%;
 }
+
 body {
-    
+    height: 100%;
     font-family: "Gilroy", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: var.$color-text-primary;
-    background: var.$color-orange-secondary;
+    background: aliceblue;
 
 }
-
 
 
 // Контейнер
 .container {
-    max-width:var.$maxWidthContainer + px;
+    max-width: var.$maxWidthContainer + px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
+//оболочка //
 .wrapper {
     width: 100%;
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    
-}
-.mainmain {
-    height: 20rem
+
 }
 
 // Footer  // ==========
-._footer-title{
+._footer-title {
     @include mx.adaptiv-value("font-size", 24, 20, 1);
-    line-height:29/24*100%;
+    line-height: 29/24*100%;
     color: var.$color-bg-dark;
     font-weight: var.$font-weight-bold;
+}
+
+
+// ! стиль  картинок с классом  .ibg  ===
+._ibg {
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+._ibg img {
+
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
 }

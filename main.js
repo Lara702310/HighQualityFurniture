@@ -146,7 +146,7 @@ function close(btn) {
     if (!body) return;
 
     btn.classList.remove('_spoller-active');
-    body.style.overflowY = 'hidden'; 
+    body.style.overflowY = 'hidden';
     body.style.maxHeight = '0';
     body.style.paddingTop = '0';
     body.style.paddingBottom = '0';
@@ -175,3 +175,33 @@ document.addEventListener('DOMContentLoaded', () => {
     initFooterArrows();
     initSpollers();
 });
+
+//! стили для картинок с классом .ibg =======
+
+function ibg() {
+
+    let ibg = document.querySelectorAll(".ibg");
+    for (var i = 0; i < ibg.length; i++) {
+        if (ibg[i].querySelector('img')) {
+            ibg[i].style.backgroundImage = 'url(' + ibg[i].querySelector('img').getAttribute('src') + ')';
+        }
+    }
+}
+
+ibg();
+
+
+// Swiper  ///  slider ////=================
+
+const swiper = new Swiper('._swiper', {
+    loop: true,
+    navigation: {
+        nextEl: '.slider-arrow--next',
+        prevEl: '.slider-arrow--prev',
+    },
+    pagination: {
+        el: '.controls-slider-main__dotts',
+        clickable: true,
+    },
+});
+
