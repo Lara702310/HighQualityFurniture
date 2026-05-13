@@ -1,0 +1,383 @@
+@use "../variables" as var;
+@use "../mixins" as mx;
+@use "sass:math";
+
+// Основной блок // ===
+.page {
+    flex: 1 1 auto;
+}
+
+//================================
+.main-slider {
+    background: var.$color-page-bg;
+
+    // .main-slider__container
+    &__container {
+        position: relative;
+
+        @media (min-width: #{var.$md2}px) {
+            &::before {
+                content: "";
+                background: var.$color-orange-secondary;
+                position: absolute;
+                top: 0;
+                right: 376px;
+                width: 100vw;
+                height: 100%;
+            }
+        }
+    }
+
+    // .main-slider__body
+    &__body {
+        padding: 14rem 0 0 0;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width: #{var.$md2}px) {
+            padding: 8rem 0 0 0;
+        }
+
+        @media (max-width: #{var.$md3}px) {
+            padding: 5rem 0 0 0;
+        }
+
+        @media (min-width: #{var.$md2}px) {
+            display: flex;
+        }
+    }
+
+    // .main-slider__content
+    &__content {
+        flex: 0 0 math.div(494, 1240) * 100%;
+        align-self: flex-start;
+        @include mx.adaptiv-value("margin-bottom", 80, 15, 1);
+
+        @media (max-width: #{var.$md2}px) {
+            margin: 0 -15px;
+        }
+    }
+
+    // .main-slider__slider
+    &__slider {
+        flex: 1 1 auto;
+        align-self: flex-end;
+        min-width: 0;
+
+        @media (min-width: #{var.$md2}px) {
+            padding: 0 0 0 32px;
+        }
+    }
+
+}
+
+//  main-slider__content  content_main  ====
+.content-main {
+    position: relative;
+    z-index: 5;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: rgba(255, 255, 255, 0.72);
+    @include mx.adaptiv-value("padding-top", 60, 15, 1);
+    @include mx.adaptiv-value("padding-bottom", 60, 15, 1);
+
+    @media (min-width: #{var.$md2}px) {
+        @include mx.adaptiv-value("padding", 60, 15, 1);
+        background: rgba(255, 255, 255, 0.9);
+
+        @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(31px);
+        }
+    }
+
+    // .content-main__title
+    &__title {
+        // адаптивный размер шрифта через миксин (от 56px до 24px)
+        @include mx.adaptiv-value("font-size", 56, 24, 1);
+        font-weight: 700;
+        line-height: 120%;
+
+        //  отступ снизу только если элемент не последний
+        &:not(:last-child) {
+            // отступ в em относительно font-size элемента (16/56 = ~0.286em)
+            margin: 0 0 math.div(16, 56) * 1em 0;
+        }
+    }
+
+    // .content-main__text 
+    &__text {
+        @include mx.adaptiv-value("font-size", 20, 16, 1);
+        color: var.$color-gray-1;
+        font-weight: 500;
+        line-height: 150%;
+
+        &:not(:last-child) {
+            // отступ в em относительно font-size элемента (16/56 = ~0.286em)
+            margin: 0 0 math.div(48, 20) * 1em 0;
+        }
+    }
+
+    // .content-main__button
+    &__button {
+        width: 100%;
+        font-size: 600;
+        @include mx.adaptiv-value("min-height", 78, 45, 1);
+        @include mx.adaptiv-value("font-size", 20, 16, 1);
+        background-color: var.$color-orange-accents;
+        color: var.$color-text-inverse;
+
+        @media (any-hover: hover) {
+            &:hover {
+                background: var.$color-orange-2;
+            }
+        }
+    }
+}
+
+// ====== main-slider__slider slider-main  ===========
+//    slider-main__controls   ===
+
+.slider-main__controls {
+    @include mx.flex-between;
+    align-self: stretch;
+
+    @media (max-width: #{var.$md2}px) {
+        margin: 10px 0 20px 0;
+    }
+}
+
+.controls-slider-main {
+    margin: 0 0 20px 0;
+}
+
+// ===   controls-slider-main__arrows ===
+
+.slider-arrows {
+    display: grid;
+    grid-template-columns: repeat(2, 48px);
+    column-gap: 8px;
+
+    @media (max-width: #{var.$md2}px) {
+        display: none;
+    }
+}
+
+.slider-arrow {
+    width: 48px;
+    height: 48px;
+    font-size: 12px;
+    border-radius: 50%;
+    color: var.$color-orange-2;
+    background-color: var.$bg-color-arrow;
+    @include mx.flex-center;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &--prev {
+        transform: rotate(90deg);
+
+    }
+
+    &--next {
+        transform: rotate(-90deg);
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            color: #ffffff;
+            background-color: var.$bg-color-hover;
+        }
+    }
+
+    &--white {
+        box-shadow: 0 4px 14px 1px rgba(0, 0, 0, 0.16);
+        background-color: aliceblue;
+
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: var.$color-orange-2;
+                background-color: var.$bg-color-hover;
+            }
+        }
+
+    }
+}
+
+//  стилизуем точки для слайдера ===============
+
+.controls-slider-main__dotts {
+    @include mx.flex-align;
+
+    @media (max-width: #{var.$md2}px) {
+        justify-content: center;
+    }
+
+    .swiper-pagination-bullet {
+        cursor: pointer;
+        width: 27px;
+        height: 27px;
+        background: transparent;
+        opacity: 1;
+        position: relative;
+        @include mx.flex-center;
+        margin: 0;
+
+        &:not(:last-child) {
+            margin-right: 12px;
+        }
+
+        &::after {
+            content: "";
+            width: 11px;
+            height: 11px;
+            background-color: #d8d8d8;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid var.$color-orange-accents;
+            transition: transform 0.3s ease;
+            transform: scale(0);
+        }
+
+        &.swiper-pagination-bullet-active {
+            &::after {
+                background-color: var.$color-orange-accents;
+            }
+
+            &::before {
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+._swiper {
+    width: 100%;
+
+    .swiper-slide {
+        // мобилка — по умолчанию
+        width: 100%;
+
+        // планшет
+        @media (min-width: #{var.$md3}px) {
+            width: calc(50% - 10px);
+
+            // десктоп
+            @media (min-width: #{var.$md2}px) {
+                width: calc(33.333% - 20px);
+            }
+
+            .swiper-wrapper {
+                @media (min-width: #{var.$md3}px) {
+                    gap: 20px;
+                }
+
+                @media (min-width: #{var.$md2}px) {
+                    gap: 30px;
+                }
+            }
+        }
+    }
+}
+
+//  =========  slider-main__body _swiper swiper =========
+// slider-main =======
+.slider-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @media (max-width: #{var.$md2}px) {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    // ==  slider-main__body ===
+    &__body {
+        overflow: visible;
+
+        @media (min-width: #{var.$md2}px) {
+            @include mx.adaptiv-value("width", 934, 290, 1);
+        }
+
+        @media (max-width: #{var.$md2}px) {
+            margin: 0 -15px;
+        }
+    }
+
+    & // .slider-main__slide {
+
+    &__slide {
+        position: relative;
+        margin: 0 32px 0 0;
+
+    }
+
+    //  .slider-main__image ==========
+    &__image {
+        padding: 0 0 59% 0;
+    }
+
+    // slider-main__content ==========
+    &__content {
+        min-width: 295px;
+        max-height: 300px;
+        overflow: auto;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        @include mx.adaptiv-value("padding", 24, 15, 1);
+        background: rgba(255, 255, 255, 0.9);
+
+        @media (min-width: #{var.$md3}px) {
+            position: absolute;
+            min-width: 350px;
+            @include mx.adaptiv-value("right", 40, 0, 1);
+            @include mx.adaptiv-value("bottom", 40, 0, 1);
+        }
+
+        @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(31px);
+        }
+    }
+
+    // .slider-main__title ===========
+    &__title {
+        @include mx.adaptiv-value("font-size", 28, 22, 1);
+        font-weight: 600;
+        line-height: 120%;
+        //  перевода px в em :если у родителя font-size: 28px, то 0.1429em = 4px.
+        margin: 0 0 math.div(4px, 28px) * 1em 0;
+
+    }
+
+    &__text {
+        line-height: 150%;
+        color: var.$color-gray-accents;
+
+        &:not(:last-child) {
+            margin: 0 0 math.div(8px, 16px) * 1em 0;
+        }
+    }
+
+    &__price {
+        @include mx.flex-between;
+        font-size: 2rem;
+        line-height: 150%;
+        font-weight: 500;
+        @include mx.adaptiv-value("font-size", 20, 16, 1);
+
+    }
+}

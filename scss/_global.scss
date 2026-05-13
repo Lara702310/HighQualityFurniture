@@ -1,6 +1,7 @@
 @use "./variables" as var;
 @use "./mixins" as mx;
 @use "./fonts";
+@use "sass:math";
 
 html {
     font-size: 62.5%;
@@ -8,6 +9,7 @@ html {
 }
 
 body {
+    
     height: 100%;
     font-family: "Gilroy", sans-serif;
     font-weight: 400;
@@ -20,7 +22,7 @@ body {
 
 // Контейнер
 .container {
-    max-width: var.$maxWidthContainer + px;
+    max-width: #{var.$maxWidthContainer}px;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -31,13 +33,15 @@ body {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+   
 
 }
 
 // Footer  // ==========
 ._footer-title {
     @include mx.adaptiv-value("font-size", 24, 20, 1);
-    line-height: 29/24*100%;
+    line-height: math.div(29, 24) * 100%;
     color: var.$color-bg-dark;
     font-weight: var.$font-weight-bold;
 }
@@ -50,6 +54,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+
 }
 
 ._ibg img {
@@ -60,5 +65,5 @@ body {
     top: 0;
     left: 0;
     opacity: 0;
-    visibility: hidden;
+
 }

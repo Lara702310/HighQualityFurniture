@@ -9,6 +9,7 @@
 - **CSS3** — анимации, transitions, media queries
 - **JavaScript** — обработка событий, споллеры, адаптивное меню
 - **SVG-спрайты** — иконки через `<use href="icons-sprite.svg#name" />`
+- **[Swiper](https://swiperjs.com/) v12.1.4** 
 
 
 
@@ -63,6 +64,7 @@
 - **Форма поиска** — с SVG-иконкой и `focus-within`
 - **Кнопки** — включая кнопку стрелки меню с анимацией поворота
 - **Иконки** — через SVG-спрайт с модификаторами размера (`--sm`, `--md`, `--lg`, `--xl`)
+- **Main slider** — implemented with Swiper (navigation arrows and pagination dots)
 
 ## 📱 Адаптивность
 

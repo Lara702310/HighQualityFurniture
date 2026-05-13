@@ -4,7 +4,7 @@
 
 .footer {
     &__body {
-       background: #f4f5f7;
+        background: #f4f5f7;
         border-top: 1px solid var.$border-color-footer;
         display: grid;
         grid-template-columns: 25rem 1fr 29rem;
@@ -133,7 +133,8 @@
             }
         }
     }
-     //  рисуем  стрелки  и виводим  с помощю js ==================
+
+    //  рисуем  стрелки  и виводим  с помощю js ==================
     .btn--menu-arrow-down {
         display: none;
         flex-shrink: 0;

@@ -7,7 +7,35 @@
     position: absolute;
     top: 0;
     left: 0;
+    min-height: 40px;
 
+    @media (max-width: #{var.$md3}px) {
+        min-height: 5px;
+    }
+    
+    &._scroll {
+        .header__wrapper {
+            background-color: rgba(255, 255, 255, 0.8);
+
+            @media (any-hover: hover) {
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.9);
+                }
+            }
+        }
+    }
+    
+
+    .header__body {
+        min-height: 50px;
+
+        @media (min-width: #{var.$md2}px) {
+            min-height: 70px;
+        }
+
+    }
+
+    //    header__wrapper =========
     &__wrapper {
         position: fixed;
         top: 0;
@@ -16,20 +44,20 @@
         z-index: 100;
     }
 
+    //  header__body  ====
     &__body {
         @include mx.flex-align;
         padding: 5px 0;
         min-height: 12.5rem;
         position: relative;
+        transition: background-color 0.3s ease 0s;
 
         @media (max-width: #{var.$md2}px) {
             min-height: 80px;
-
         }
 
         @media (max-width: #{var.$md3}px) {
             min-height: 50px;
-
         }
     }
 
@@ -61,10 +89,11 @@
 }
 
 
-// menu //============================
+// header__menu //============================
 .menu {
     flex: 0 1 420px;
 
+    //  header-menu   menu__body =========
     &__body {
         @media (max-width: #{var.$md3}px) {
             position: fixed;
@@ -98,7 +127,7 @@
             }
         }
     }
-
+    // header-menu__list
     &__list {
         @media (min-width: #{var.$md3}px) {
             display: flex;
@@ -189,7 +218,7 @@
     }
 }
 
-
+// header__search =============
 // search-form //============================
 .search-form {
     max-width: 47.3rem;
@@ -233,7 +262,7 @@
 }
 
 
-// actions-header //============================
+// actions-header //=============
 .actions-header {
     position: relative;
     z-index: 5;

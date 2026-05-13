@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function ibg() {
 
-    let ibg = document.querySelectorAll(".ibg");
+    let ibg = document.querySelectorAll("._ibg");
     for (var i = 0; i < ibg.length; i++) {
         if (ibg[i].querySelector('img')) {
             ibg[i].style.backgroundImage = 'url(' + ibg[i].querySelector('img').getAttribute('src') + ')';
@@ -194,7 +194,17 @@ ibg();
 // Swiper  ///  slider ////=================
 
 const swiper = new Swiper('._swiper', {
+    observer: true,
+    observerParents: true,
+    slidesPerView: 1,
+    watchOverflow: true,
+    speed: 800,
     loop: true,
+    loopAdditionalSlide: 5,
+    preloadImages: false,
+    initialSlide: 0,
+    
+    spaceBetween: 20,
     navigation: {
         nextEl: '.slider-arrow--next',
         prevEl: '.slider-arrow--prev',
@@ -205,3 +215,17 @@ const swiper = new Swiper('._swiper', {
     },
 });
 
+
+//  Стилизациа  header во время скрола ===========
+const headerElement = document.querySelector(".header");
+
+const callback = function (entries, observer) {
+    if (entries[0].isIntersecting) { 
+        headerElement.classList.remove("_scroll");
+    } else {
+        headerElement.classList.add("_scroll");
+    }
+}
+
+const headerObserver = new IntersectionObserver(callback);
+headerObserver.observe(headerElement);
