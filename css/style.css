@@ -705,6 +705,21 @@ body {
   }
 }
 
+@keyframes cart-bump {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.cart-header__icon.cart--bump {
+  animation: cart-bump 0.3s ease;
+}
+
 .footer__body {
   background: #f4f5f7;
   border-top: 1px solid #d8d8d8;
