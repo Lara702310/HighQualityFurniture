@@ -1,3 +1,7 @@
+import { useDynamicAdapt } from './dynamicAdapt.js'
+
+useDynamicAdapt('max')
+
 
 const isMobile = {
     Android: () => navigator.userAgent.match(/Android/i),
@@ -203,7 +207,7 @@ const swiper = new Swiper('._swiper', {
     loopAdditionalSlide: 5,
     preloadImages: false,
     initialSlide: 0,
-    
+
     spaceBetween: 20,
     navigation: {
         nextEl: '.slider-arrow--next',
@@ -220,7 +224,7 @@ const swiper = new Swiper('._swiper', {
 const headerElement = document.querySelector(".header");
 
 const callback = function (entries, observer) {
-    if (entries[0].isIntersecting) { 
+    if (entries[0].isIntersecting) {
         headerElement.classList.remove("_scroll");
     } else {
         headerElement.classList.add("_scroll");
@@ -229,3 +233,135 @@ const callback = function (entries, observer) {
 
 const headerObserver = new IntersectionObserver(callback);
 headerObserver.observe(headerElement);
+
+
+
+
+
+///  Получение данных из JSON файла  =========================
+/**
+ * Преобразует объект продукта из JSON в HTML-строку.
+ * Поддерживает оба формата labels:
+ *   - Старый:  { sale: "-30%", new: true }
+ *   - Новый:   [ { text: "sale", value: "-50%" }, { text: "new", value: "New" } ]
+ */
+function buildProductHTML(product) {
+    // --- Labels ---
+    let labelsHTML = '';
+
+    if (Array.isArray(product.labels) && product.labels.length > 0) {
+        // Новый формат: массив объектов { text, value }
+        product.labels.forEach(label => {
+            if (label.text === 'sale') {
+                labelsHTML += `<div class="item-product__label item-product__label--sale">${label.value}</div>`;
+            } else if (label.text === 'new') {
+                labelsHTML += `<div class="item-product__label item-product__label--new">${label.value}</div>`;
+            }
+        });
+    } else if (product.labels && typeof product.labels === 'object') {
+        // Старый формат: { sale: "-30%", new: true }
+        if (product.labels.sale) {
+            labelsHTML += `<div class="item-product__label item-product__label--sale">${product.labels.sale}</div>`;
+        }
+        if (product.labels.new) {
+            labelsHTML += `<div class="item-product__label item-product__label--new">New</div>`;
+        }
+    }
+
+    // --- Old price ---
+    const oldPriceHTML = product.priceOld
+        ? `<div class="item-product__price item-product__price--old">Rp ${product.priceOld}</div>`
+        : '';
+
+    // --- Price (добавляем "Rp", если его нет) ---
+    const price = String(product.price).startsWith('Rp') ? product.price : `Rp ${product.price}`;
+    const imgSrc = product.image.startsWith('./') || product.image.startsWith('http')
+        ? product.image
+        : `./assets/products/${product.image}`;
+    return `
+        <article data-pid="${product.id}" class="product__item item-product">
+            ${labelsHTML ? `<div class="item-product__labels">${labelsHTML}</div>` : ''}
+            <a href="${product.url || '#'}" class="item-product__image _ibg">
+                <img src="${imgSrc}" alt="${product.title}">
+            </a>
+            <div class="item-product__body">
+                <div class="item-product__content">
+                    <h3 class="item-product__title">${product.title}</h3>
+                    <div class="item-product__text">${product.text}</div>
+                </div>
+                <div class="item-product__prices">
+                    <div class="item-product__price">${price}</div>
+                    ${oldPriceHTML}
+                </div>
+                <div class="item-product__actions actions-product">
+                    <div class="actions-product__body">
+                        <a href="#" class="actions-product__button btn-base btn-base--white">Add to cart</a>
+                        <a href="#" class="actions-product__link">
+                            <svg class="icon icon--product">
+                                <use href="./assets/icons-sprite.svg#share" />
+                            </svg>
+                            <span>Share</span>
+                        </a>
+                        <a href="#" class="actions-product__link">
+                            <svg class="icon icon--product">
+                                <use href="./assets/icons-sprite.svg#like" />
+                            </svg>
+                            <span>Like</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>`;
+}
+
+/**
+ * Загружает дополнительные товары из JSON и добавляет их в контейнер.
+ * После загрузки скрывает кнопку «Show More».
+ */
+async function loadMoreProducts() {
+    const container = document.getElementById('products-items-container');
+    const btn = document.querySelector('.products__more');
+
+    if (!container || !btn) return;
+
+    // Блокируем повторный клик во время загрузки
+    btn.disabled = true;
+    btn.textContent = 'Loading...';
+
+    try {
+        const response = await fetch('./json/product.json');
+        if (!response.ok) throw new Error('Не удалось загрузить product.json');
+
+        const data = await response.json();
+
+        // Поддерживаем оба варианта корня JSON: массив [] или объект { products: [] }
+        const products = Array.isArray(data) ? data : (data.products || []);
+
+        if (products.length === 0) {
+            btn.style.display = 'none';
+            return;
+        }
+
+        // Добавляем товары в конец контейнера
+        const html = products.map(buildProductHTML).join('');
+        container.insertAdjacentHTML('beforeend', html);
+
+        // Товары загружены — прячем кнопку
+        btn.style.display = 'none';
+
+    } catch (error) {
+        console.error('Ошибка загрузки товаров:', error);
+        btn.textContent = 'Error. Try again';
+        btn.disabled = false;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.querySelector('.products__more');
+    if (btn) {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadMoreProducts();
+        });
+    }
+});

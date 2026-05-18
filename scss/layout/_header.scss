@@ -25,14 +25,12 @@
         }
     }
     
-
     .header__body {
         min-height: 50px;
 
         @media (min-width: #{var.$md2}px) {
             min-height: 70px;
         }
-
     }
 
     //    header__wrapper =========
@@ -41,7 +39,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 100;
+        z-index: 50;
     }
 
     //  header__body  ====
@@ -281,3 +279,7 @@
         }
     }
 }
+
+
+
+

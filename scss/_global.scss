@@ -9,19 +9,20 @@ html {
 }
 
 body {
-    
+
     height: 100%;
     font-family: "Gilroy", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: var.$color-text-primary;
-    background: aliceblue;
+    background: var.$color-bg-primary;
 
 }
 
 
 // Контейнер
 .container {
+    width: 100%;
     max-width: #{var.$maxWidthContainer}px;
     margin: 0 auto;
     padding: 0 15px;
@@ -34,7 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-   
+
 
 }
 
@@ -46,24 +47,29 @@ body {
     font-weight: var.$font-weight-bold;
 }
 
-
-// ! стиль  картинок с классом  .ibg  ===
-._ibg {
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
+// item-product  __title   // ==========
+.product__title {
+    @include mx.adaptiv-value("font-size", 40, 24, 1);
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
 
 }
 
-._ibg img {
 
-    width: 0;
-    height: 0;
+// ! стиль  картинок с классом  .ibg  ===
+._ibg {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+._ibg img {
     position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    opacity: 0;
-
+    object-fit: cover;
+    object-position: center;
 }
