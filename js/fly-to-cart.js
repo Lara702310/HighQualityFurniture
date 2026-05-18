@@ -55,7 +55,7 @@ function flyToCart(productCard) {
         if (e.propertyName !== 'width') return; // срабатывает только один раз
         fly.remove();
         bumpCart();
-        updateCartCount();
+        
     });
 }
 
@@ -69,19 +69,3 @@ function bumpCart() {
     }, { once: true });
 }
 
-// Увеличиваем счётчик — span уже есть внутри .cart-header__icon
-function updateCartCount() {
-    const badge = document.querySelector('.cart-header__icon span');
-    if (!badge) return;
-    const current = parseInt(badge.textContent) || 0;
-    badge.textContent = current + 1;
-}
-
-// Делегирование — работает и для статичных, и для динамических карточек
-document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.actions-product__button');
-    if (!btn) return;
-    e.preventDefault();
-    const card = btn.closest('.item-product');
-    if (card) flyToCart(card);
-});
